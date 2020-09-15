@@ -9,6 +9,7 @@ import (
 type Provider interface {
 	AuthorizeURL(state string, opts ...oauth2.AuthCodeOption) string
 	ExchangeToken(ctx context.Context, code string) (*oauth2.Token, error)
+	UserInfo (ctx context.Context, code string) (*UserInfo, error)
 }
 
 type Config struct {
